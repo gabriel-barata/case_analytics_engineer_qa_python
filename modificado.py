@@ -20,7 +20,21 @@ class MicroServiceQuintoAndar:
         *args,
         **kwargs
     ):
+        """
+        Método de inicialização da classe, gera uma conexão com o banco postgres e 
+        uma interface de comunicação com o AWS S3
 
+        Args:
+            host: host do banco de dados
+            user: usuario do banco de dados
+            pwd: senha do usuario no banco de dados
+            db: database no banco de dados
+            port: porta do banco de dados
+            encoding: tipo de encoding do banco
+            timeout: valor timeout, default timeout=0
+            access_key: chave de acesso AWS
+            secret_key: chave secreta AWS
+        """
         self.conn = self._get_connection(**kwargs)
         self.s3 = self._get_s3_interface(**kwargs)
 
